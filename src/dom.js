@@ -13,12 +13,19 @@ const priorityInput = document.querySelector('#priority-input');
 const first = createToDo('Title', 'description and stuff', '2026/07/3', 'high');
 
 function getTodoValues() {
-    
+    const title = titleInput.value;
+    const description = descriptionInput.value;
+    const dueDate = dueDateInput.value;
+    const priority = priorityInput.value;
+
+    const todoObject = createToDo(title, description, dueDate, priority);
+
+    return todoObject;
 }
 
 function domFunctions() {
     function addTodo() {
-        const { title, description, dueDate, priority } = first;
+        const { title, description, dueDate, priority } = getTodoValues();
         titleText.textContent += title;
         descriptionText.textContent += description;
         dueDateText.textContent += dueDate;
@@ -27,7 +34,7 @@ function domFunctions() {
 
     addToDoButton.addEventListener('click', addTodo);
 
-    return; 
+    return;
 }
 
 
