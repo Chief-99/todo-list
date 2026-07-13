@@ -17,10 +17,14 @@
         <input type="text" id="description-input">
 
         <label for="due-date-input">Due date:</label>
-        <input type="text" id="due-date-input">
+        <input type="date" id="due-date-input">
 
         <label for="priority-input">Priority</label>
-        <input type="text" id="priority-input">
+        <select name="priority" id="priority">
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+        </select>
     </form>
 
     <button id="add-todo">Add todo</button>
