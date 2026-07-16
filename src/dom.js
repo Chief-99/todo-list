@@ -9,6 +9,8 @@ const descriptionInput = document.querySelector('#description-input');
 const dueDateInput = document.querySelector('#due-date-input');
 const priorityInput = document.querySelector('#priority-input');
 const displayDiv = document.querySelector('#display-div');
+const openTodoForm = document.getElementById('open-todo-form');
+const modalBox = document.getElementById('modal');
 
 function addTodo() {
     const title = titleInput.value;
@@ -50,6 +52,13 @@ function domFunctions() {
     });
     return;
 }
+
+openTodoForm.addEventListener('click', () => modalBox.style.display = 'block');
+window.addEventListener('click', (e) => {
+    if (e.target == modalBox) {
+        modalBox.style.display = 'none';
+    }
+})
 
 
 export { domFunctions };
