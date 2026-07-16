@@ -25,6 +25,7 @@ function addTodo() {
     console.log(mainList);
 
     itemContainer.id = todoObject.id;
+    modalBox.style.display = 'none';
 
     return;
 }
