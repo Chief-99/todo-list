@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* &Form */
 #modal {
-    display: none;
+    /* display: none; */
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -69,5 +69,17 @@ h1, h2, h3, h4, h5, h6 {
     margin: 15% auto;
     padding: 2rem;
     border: 1px solid #888;
-    width: 60%;
+    width: 30%;
+}
+
+#todo-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+ 
+.form-section label {
+    display: block;
 }
