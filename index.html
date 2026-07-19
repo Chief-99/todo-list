@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+<script defer src="main.js"></script></head>
+
+<body>
+
+    <div id="modal">
+        <div id="modal-content">
+            <form id="todo-form">
+                <p class="form-section">
+                    <label for="title-input">Title:</label>
+                    <input type="text" id="title-input" minlength="3" required>
+                </p>
+
+                <p class="form-section">
+                    <label for="description-input">Description:</label>
+                    <input type="text" id="description-input">
+                </p>
+
+                <p class="form-section">
+                    <label for="due-date-input">Due date:</label>
+                    <input type="datetime-local" id="due-date-input" required>
+                </p>
+
+                <p class="form-section">
+                    <label for="priority-input">Priority</label>
+                    <select name="priority-input" id="priority-input">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </p>
+
+                <button id="add-todo" type="submit">Confirm</button>
+            </form>
+
+        </div>
+    </div>
+
+    <button id="open-todo-form">Add todo</button>
+
+
+    <div id="display-div">
+
+    </div>
+</body>
+
+</html>
