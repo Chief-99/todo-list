@@ -25,7 +25,7 @@ function addTodo() {
     console.log(mainList);
 
     itemContainer.id = todoObject.id;
-    modalBox.style.display = 'none';
+    // modalBox.style.display = 'none';
 
     return;
 }
@@ -47,9 +47,11 @@ function displayTodos(mainList) {
 
 function domFunctions() {
 
-    addToDoButton.addEventListener('click', () => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
         addTodo();
         displayTodos(mainList);
+        modalBox.style.display = 'none';
     });
     return;
 }
