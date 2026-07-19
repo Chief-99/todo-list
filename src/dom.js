@@ -32,17 +32,21 @@ function addTodo() {
 
 function displayTodos(mainList) {
     const lastTodo = mainList.at(-1);
+    const checkbox = document.createElement('input');
     const titleDisplay = document.createElement('p');
     const descriptionDisplay = document.createElement('p');
     const dueDateDisplay = document.createElement('p');
     const priorityDisplay = document.createElement('p');
+    const deleteButton = document.createElement('button');
     const itemContainer = document.getElementById(lastTodo.id);
 
+    checkbox.type = 'checkbox';
     titleDisplay.textContent = `Title: ${lastTodo.title}`;
     descriptionDisplay.textContent = `Description: ${lastTodo.description}`;
     dueDateDisplay.textContent = `Due date: ${lastTodo.dueDate}`;
     priorityDisplay.textContent = `Priority: ${lastTodo.priority}`;
-    itemContainer.append(titleDisplay, descriptionDisplay, dueDateDisplay, priorityDisplay);
+    deleteButton.textContent = 'Delete';
+    itemContainer.append(checkbox, titleDisplay, descriptionDisplay, dueDateDisplay, priorityDisplay, deleteButton);
 }
 
 function domFunctions() {
