@@ -30,6 +30,14 @@ function addTodo() {
     return;
 }
 
+function removeTodo(e) {
+    const selectedDiv = e.target.closest('.todo-item');
+    const index = mainList.findIndex(item => item.id === selectedDiv.id);
+    selectedDiv.remove();
+    mainList.splice(index, 1);
+    console.log(mainList);
+}
+
 function displayTodos(mainList) {
     const lastTodo = mainList.at(-1);
     const checkbox = document.createElement('input');
@@ -46,11 +54,13 @@ function displayTodos(mainList) {
     dueDateDisplay.textContent = `Due date: ${lastTodo.dueDate}`;
     priorityDisplay.textContent = `Priority: ${lastTodo.priority}`;
     deleteButton.textContent = 'Delete';
+    itemContainer.classList.add('todo-item');
     itemContainer.append(checkbox, titleDisplay, descriptionDisplay, dueDateDisplay, priorityDisplay, deleteButton);
+
+    deleteButton.addEventListener('click', removeTodo);
 }
 
 function domFunctions() {
-
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         addTodo();
