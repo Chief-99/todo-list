@@ -77,6 +77,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #fefefe;
     padding: 2rem;
     border: 1px solid #888;
+    width: clamp(17rem, 45%, 30rem);
 }
 
 #todo-form {
@@ -86,7 +87,31 @@ h1, h2, h3, h4, h5, h6 {
     gap: 3rem;
     margin-bottom: 3rem;
 }
+
+.due-date-priority {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+
+.secondary-container {
+    width: 100%;
+}
  
 .form-section label {
     display: block;
+}
+
+#todo-form input,
+#todo-form select,
+#todo-form textarea {
+    width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+select {
+    height: 30px;
 }
