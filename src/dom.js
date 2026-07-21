@@ -70,7 +70,7 @@ function domFunctions() {
     return;
 }
 
-openTodoForm.addEventListener('click', () => modalBox.style.display = 'block');
+openTodoForm.addEventListener('click', () => modalBox.style.display = 'flex');
 window.addEventListener('click', (e) => {
     if (e.target == modalBox) {
         modalBox.style.display = 'none';
