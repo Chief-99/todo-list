@@ -57,6 +57,20 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/* &Page styling */
+body {
+  height: 100dvh;
+  display: flex;
+}
+
+#sidebar {
+  width: 25%;
+}
+
+#main-content {
+
+}
+
 /* &Form */
 #modal {
     display: none;

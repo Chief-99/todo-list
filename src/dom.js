@@ -36,8 +36,8 @@ function removeTodo(e) {
     const index = mainList.findIndex(item => item.id === selectedDiv.id);
     selectedDiv.remove();
     mainList.splice(index, 1);
-    console.log(retrieveList());
     updateStorage(mainList);
+    console.log(retrieveList());
 }
 
 function displayTodos(item) {
