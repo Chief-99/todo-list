@@ -41,21 +41,43 @@ function removeTodo(e) {
 }
 
 function displayTodos(item) {
-    const checkbox = document.createElement('input');
+    const checkbox = document.createElement('div');
     const titleDisplay = document.createElement('p');
     const descriptionDisplay = document.createElement('p');
     const dueDateDisplay = document.createElement('p');
     const priorityDisplay = document.createElement('p');
     const deleteButton = document.createElement('button');
+    const dropdownContainer = document.createElement('div');
+    const firstContainer = document.createElement('div');
+    const secondContainer = document.createElement('div');
+    const thirdContainer = document.createElement('div');
+    const halfContainer = document.createElement('div');
     const itemContainer = document.getElementById(item.id);
 
+    checkbox.classList.add('checkbox', 'checkbox-wrapper-31');
+    titleDisplay.classList.add('title-display');
+    descriptionDisplay.classList.add('description-display');
+    dueDateDisplay.classList.add('due-date-display');
+    priorityDisplay.classList.add('priority-display');
     deleteButton.classList.add('delete-button');
+    dropdownContainer.classList.add('dropdown-container');
+    firstContainer.classList.add('first-container');
+    secondContainer.classList.add('second-container');
+    thirdContainer.classList.add('third-container');
+    halfContainer.classList.add('half-container');
 
-    checkbox.type = 'checkbox';
-    titleDisplay.textContent = `Title: ${item.title}`;
-    descriptionDisplay.textContent = `Description: ${item.description}`;
-    dueDateDisplay.textContent = `Due date: ${item.dueDate}`;
-    priorityDisplay.textContent = `Priority: ${item.priority}`;
+    checkbox.innerHTML = `
+    <input type="checkbox"/>
+    <svg viewBox="0 0 35.6 35.6">
+        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+    </svg>
+`;
+    titleDisplay.textContent = item.title;
+    descriptionDisplay.textContent = item.description;
+    dueDateDisplay.textContent = item.dueDate;
+    priorityDisplay.textContent = item.priority;
     deleteButton.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em">
         // lid bar
@@ -67,7 +89,12 @@ function displayTodos(item) {
     </svg>
 `;
     itemContainer.classList.add('todo-item');
-    itemContainer.append(checkbox, titleDisplay, descriptionDisplay, dueDateDisplay, priorityDisplay, deleteButton);
+
+    firstContainer.append(checkbox, titleDisplay);
+    secondContainer.append(dueDateDisplay, priorityDisplay);
+    thirdContainer.append(deleteButton, dropdownContainer);
+    halfContainer.append(secondContainer, thirdContainer);
+    itemContainer.append(firstContainer, halfContainer);
 
     deleteButton.addEventListener('click', removeTodo);
 }

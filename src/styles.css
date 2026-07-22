@@ -82,8 +82,9 @@ h6 {
 /* &Custom properties */
 :root {
   --main-color: rgb(180, 74, 12);
+  --main-color-faded: rgba(180, 74, 12, 0.238);
   --secondary-color: rgb(253, 236, 226);
-  --orange-white: rgb(255, 248, 236);
+  --orange-white: rgb(255, 252, 248);
 }
 
 /* &Page styling */
@@ -129,7 +130,7 @@ body {
   padding: 2rem;
   display: flex;
   justify-content: space-around;
-  border-bottom: double var(--main-color); 
+  border-bottom: solid 1px var(--main-color); 
 }
 
 .current-list {
@@ -150,7 +151,41 @@ body {
   padding: 0 1rem;
 }
 
-/* &Todo items */
+/* & Todo items */
+#display-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.todo-item {
+  box-shadow: 0 0 10px var(--main-color-faded);
+  font-size: 1.2rem;
+  background-color: var(--orange-white);
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+}
+
+.first-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.half-container {
+  display: flex;
+  width: clamp(10rem, 50%, 50rem);
+  justify-content: space-between;
+}
+
+.second-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
 .delete-button {
   font-size: 2rem;
 }

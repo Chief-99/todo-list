@@ -1,4 +1,5 @@
 import './styles.css';
+import './animations.css';
 import { createToDo } from "./todo.js";
 import { mainList, projects } from "./projects.js";
 import { displayAllItems, domFunctions } from "./dom.js";
