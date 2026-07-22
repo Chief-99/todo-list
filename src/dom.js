@@ -1,6 +1,7 @@
 import { createToDo } from "./todo.js";
 import { mainList } from "./projects.js";
 import { format } from "date-fns";
+import { updateStorage, retrieveList } from "./storage.js";
 
 const addToDoButton = document.querySelector('#add-todo');
 const form = document.getElementById('todo-form');
@@ -23,9 +24,9 @@ function addTodo() {
     const itemContainer = document.createElement('div');
     displayDiv.appendChild(itemContainer);
     console.log(mainList);
+    updateStorage(mainList);
 
     itemContainer.id = todoObject.id;
-    // modalBox.style.display = 'none';
 
     return;
 }
@@ -35,24 +36,24 @@ function removeTodo(e) {
     const index = mainList.findIndex(item => item.id === selectedDiv.id);
     selectedDiv.remove();
     mainList.splice(index, 1);
-    console.log(mainList);
+    console.log(retrieveList());
+    updateStorage(mainList);
 }
 
-function displayTodos(mainList) {
-    const lastTodo = mainList.at(-1);
+function displayTodos(item) {
     const checkbox = document.createElement('input');
     const titleDisplay = document.createElement('p');
     const descriptionDisplay = document.createElement('p');
     const dueDateDisplay = document.createElement('p');
     const priorityDisplay = document.createElement('p');
     const deleteButton = document.createElement('button');
-    const itemContainer = document.getElementById(lastTodo.id);
+    const itemContainer = document.getElementById(item.id);
 
     checkbox.type = 'checkbox';
-    titleDisplay.textContent = `Title: ${lastTodo.title}`;
-    descriptionDisplay.textContent = `Description: ${lastTodo.description}`;
-    dueDateDisplay.textContent = `Due date: ${lastTodo.dueDate}`;
-    priorityDisplay.textContent = `Priority: ${lastTodo.priority}`;
+    titleDisplay.textContent = `Title: ${item.title}`;
+    descriptionDisplay.textContent = `Description: ${item.description}`;
+    dueDateDisplay.textContent = `Due date: ${item.dueDate}`;
+    priorityDisplay.textContent = `Priority: ${item.priority}`;
     deleteButton.textContent = 'Delete';
     itemContainer.classList.add('todo-item');
     itemContainer.append(checkbox, titleDisplay, descriptionDisplay, dueDateDisplay, priorityDisplay, deleteButton);
@@ -60,11 +61,25 @@ function displayTodos(mainList) {
     deleteButton.addEventListener('click', removeTodo);
 }
 
+function displayAllItems(mainList) {
+    const savedList = retrieveList();
+    console.log(savedList);
+    if (!savedList) return;
+    for (let item of savedList) {
+        mainList.push(item);
+        const itemContainer = document.createElement('div');
+        itemContainer.id = item.id;
+        displayDiv.append(itemContainer);
+        displayTodos(item);
+    };
+    return;
+}
+
 function domFunctions() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         addTodo();
-        displayTodos(mainList);
+        displayTodos(retrieveList().at(-1));
         modalBox.style.display = 'none';
     });
     return;
@@ -78,4 +93,4 @@ window.addEventListener('click', (e) => {
 })
 
 
-export { domFunctions };
+export { domFunctions, displayAllItems };
