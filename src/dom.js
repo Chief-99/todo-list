@@ -49,12 +49,23 @@ function displayTodos(item) {
     const deleteButton = document.createElement('button');
     const itemContainer = document.getElementById(item.id);
 
+    deleteButton.classList.add('delete-button');
+
     checkbox.type = 'checkbox';
     titleDisplay.textContent = `Title: ${item.title}`;
     descriptionDisplay.textContent = `Description: ${item.description}`;
     dueDateDisplay.textContent = `Due date: ${item.dueDate}`;
     priorityDisplay.textContent = `Priority: ${item.priority}`;
-    deleteButton.textContent = 'Delete';
+    deleteButton.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" width="1em" height="1em">
+        // lid bar
+        <rect x="60" y="152" width="392" height="20" rx="10" fill="currentColor"/>
+        // handle on lid
+        <path d="M192 152 C192 108 210 80 256 80 C302 80 320 108 320 152" stroke="currentColor" stroke-width="20" stroke-linecap="round" fill="none"/>
+        // bin body
+        <path d="M120 188 L148 420 C152 450 174 464 200 464 L312 464 C338 464 360 450 364 420 L392 188" stroke="currentColor" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+`;
     itemContainer.classList.add('todo-item');
     itemContainer.append(checkbox, titleDisplay, descriptionDisplay, dueDateDisplay, priorityDisplay, deleteButton);
 
