@@ -114,6 +114,14 @@ body {
   background-color: var(--orange-white);
   border: none;
   color: var(--main-color);
+  font-weight: 500;
+  transition: background-color 200ms;
+}
+
+#open-todo-form:hover,
+#open-todo-form:focus {
+  background-color: var(--secondary-color);
+  cursor: pointer;
 }
 
 /* &Form */
