@@ -19,22 +19,25 @@
 
                 <p class="form-section">
                     <label for="description-input">Description:</label>
-                    <input type="text" id="description-input">
+                    <textarea name="description-input" id="description-input"></textarea>
                 </p>
 
-                <p class="form-section">
-                    <label for="due-date-input">Due date:</label>
-                    <input type="datetime-local" id="due-date-input">
-                </p>
-
-                <p class="form-section">
-                    <label for="priority-input">Priority</label>
-                    <select name="priority-input" id="priority-input">
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
-                </p>
+                <div class="due-date-priority form-section">
+                    <p class="secondary-container">
+                        <label for="due-date-input">Due date:</label>
+                        <input type="date" id="due-date-input">
+                    </p>
+    
+                    <p class="secondary-container">
+                        <label for="priority-input">Priority</label>
+                        <select name="priority-input" id="priority-input">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </p>
+                </div>
+                
 
                 <button id="add-todo" type="submit">Confirm</button>
             </form>
