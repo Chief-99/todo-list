@@ -111,6 +111,7 @@ body {
 #open-todo-form {
   font-size: 1.3rem;
   width: 100%;
+  border-radius: 0.5rem;
   padding: 0.4rem;
   background-color: var(--orange-white);
   border: none;
@@ -130,7 +131,7 @@ body {
   padding: 2rem;
   display: flex;
   justify-content: space-around;
-  border-bottom: solid 1px var(--main-color); 
+  border-bottom: solid 2px var(--main-color-faded); 
 }
 
 .current-list {
@@ -149,13 +150,14 @@ body {
   background-color: transparent;
   color: var(--main-color);
   padding: 0 1rem;
+  border-radius: 0.5rem;
 }
 
 /* & Todo items */
 #display-div {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   padding: 2rem;
 }
 
@@ -163,8 +165,10 @@ body {
   box-shadow: 0 0 10px var(--main-color-faded);
   font-size: 1.2rem;
   background-color: var(--orange-white);
+  border-radius: 1rem;
+
   display: flex;
-  padding: 2rem;
+  padding: 1rem;
   justify-content: space-between;
 }
 
@@ -188,6 +192,38 @@ body {
 
 .delete-button {
   font-size: 2rem;
+}
+
+.high-priority {
+  background-color: rgba(255, 52, 52, 0.4);
+  color: rgb(196, 14, 14);
+  padding: 0 0.8rem;
+  border: solid rgb(226, 14, 14) 2px;
+  border-radius: 1rem;
+}
+
+.medium-priority {
+  background-color: rgba(248, 255, 52, 0.4);
+  padding: 0 0.8rem;
+  border: solid rgb(255, 204, 0) 2px;
+  color: rgb(225, 152, 5);
+  border-radius: 1rem;
+}
+
+.low-priority {
+  background-color: rgba(52, 255, 82, 0.4);
+  padding: 0 0.8rem;
+  border: solid rgb(23, 146, 43) 2px;
+  color: rgb(20, 132, 38);
+  border-radius: 1rem;
+}
+
+.added-date {
+  background-color: rgba(18, 175, 233, 0.4);
+  padding: 0 0.8rem;
+  border: solid rgb(29, 123, 177) 2px;
+  color: rgb(29, 123, 177);
+  border-radius: 1rem;
 }
 
 /* &Form */

@@ -57,8 +57,8 @@ function displayTodos(item) {
     checkbox.classList.add('checkbox', 'checkbox-wrapper-31');
     titleDisplay.classList.add('title-display');
     descriptionDisplay.classList.add('description-display');
-    dueDateDisplay.classList.add('due-date-display');
-    priorityDisplay.classList.add('priority-display');
+    dueDateDisplay.classList.add('due-date-display', item.dueDate ? 'added-date' : 'no-date');
+    priorityDisplay.classList.add('priority-display', `${item.priority.toLowerCase()}-priority`);
     deleteButton.classList.add('delete-button');
     dropdownContainer.classList.add('dropdown-container');
     firstContainer.classList.add('first-container');
