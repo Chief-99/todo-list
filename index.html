@@ -8,7 +8,24 @@
 <script defer src="main.js"></script></head>
 
 <body>
+    <section id="sidebar">
+        <button id="open-todo-form">+ Add todo</button>
+    </section>
 
+    <main id="main-content">
+        <div class="main-header">
+            <p class="current-list">Main list</p>
+
+            <div class="filter">
+                <button class="all">All</button>
+                <button class="active">Active</button>
+                <button class="completed">Completed</button>
+            </div>
+        </div>
+
+        <div id="display-div">
+        </div>
+    </main>
     <div id="modal">
         <div id="modal-content">
             <form id="todo-form">
@@ -27,7 +44,7 @@
                         <label for="due-date-input">Due date:</label>
                         <input type="date" id="due-date-input">
                     </p>
-    
+
                     <p class="secondary-container">
                         <label for="priority-input">Priority</label>
                         <select name="priority-input" id="priority-input">
@@ -37,7 +54,7 @@
                         </select>
                     </p>
                 </div>
-                
+
 
                 <button id="add-todo" type="submit">Confirm</button>
             </form>
@@ -45,12 +62,9 @@
         </div>
     </div>
 
-    <button id="open-todo-form">Add todo</button>
 
+    
 
-    <div id="display-div">
-
-    </div>
 </body>
 
 </html>
