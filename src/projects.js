@@ -6,7 +6,7 @@ function projects() {
         return { name, todos: [] };
     };
 
-    const addToProject = (item, project) => project.push(item);
+    const addToProject = (item, project) => project.todos.push(item);
 
     return { createProject, addToProject };
 }
