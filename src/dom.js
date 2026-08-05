@@ -13,7 +13,8 @@ const displayDiv = document.querySelector('#display-div');
 const openTodoForm = document.getElementById('open-todo-form');
 const modalBox = document.getElementById('modal');
 const projectsContainer = document.getElementById('projects-container');
-const newProjectButton = document.getElementById('new-project-button');
+const openProjectForm = document.getElementById('new-project-button');
+const projectModalBox = document.getElementById('project-modal');
 
 function addTodo() {
     const title = titleInput.value;
@@ -126,9 +127,12 @@ function domFunctions() {
 }
 
 openTodoForm.addEventListener('click', () => modalBox.style.display = 'flex');
+openProjectForm.addEventListener('click', () => projectModalBox.style.display = 'flex');
 window.addEventListener('click', (e) => {
     if (e.target == modalBox) {
         modalBox.style.display = 'none';
+    } else if (e.target == projectModalBox) {
+        projectModalBox.style.display = 'none';
     }
 })
 
