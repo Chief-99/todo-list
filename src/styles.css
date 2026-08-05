@@ -82,6 +82,7 @@ h6 {
 /* &Custom properties */
 :root {
   --main-color: rgb(180, 74, 12);
+  --dark-color: rgba(247, 176, 134, 0.418);
   --main-color-faded: rgba(180, 74, 12, 0.238);
   --secondary-color: rgb(253, 236, 226);
   --orange-white: rgb(255, 252, 248);
@@ -89,7 +90,7 @@ h6 {
 
 /* &Page styling */
 body {
-  height: 100dvh;
+  min-height: 100dvh;
   display: flex;
 }
 
@@ -106,6 +107,8 @@ body {
 /* &sidebar */
 #sidebar {
   padding: 2rem;
+  border-right: solid 2px var(--main-color-faded);
+  color: var(--orange-white);
 }
 
 #open-todo-form {

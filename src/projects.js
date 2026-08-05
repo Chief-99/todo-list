@@ -1,13 +1,14 @@
 const mainList = [];
+const projectList = [];
 
 function projects() {
-    const createProject = (name) => {
+    function createProject(name) {
         return { name, todos: [] };
     };
 
-    const addToDo = (item, project) => project.push(item);
+    const addToProject = (item, project) => project.push(item);
 
-    return { createProject, addToDo };
+    return { createProject, addToProject };
 }
 
 export { mainList, projects };

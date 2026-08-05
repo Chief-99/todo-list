@@ -1,10 +1,10 @@
-function updateStorage(mainList) {
+function updateMainListStorage(mainList) {
     localStorage.setItem('mainTodo', JSON.stringify(mainList));
 };
 
-function retrieveList() {
+function retrieveMainList() {
     const currentList = JSON.parse(localStorage.getItem('mainTodo'));
     return currentList;
 }
 
-export { updateStorage, retrieveList }
+export { updateMainListStorage, retrieveMainList }

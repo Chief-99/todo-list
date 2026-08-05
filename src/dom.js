@@ -1,7 +1,7 @@
 import { createToDo } from "./todo.js";
 import { mainList } from "./projects.js";
 import { format } from "date-fns";
-import { updateStorage, retrieveList } from "./storage.js";
+import { updateMainListStorage, retrieveMainList } from "./storage.js";
 
 const addToDoButton = document.querySelector('#add-todo');
 const form = document.getElementById('todo-form');
@@ -24,7 +24,7 @@ function addTodo() {
     const itemContainer = document.createElement('div');
     displayDiv.appendChild(itemContainer);
     console.log(mainList);
-    updateStorage(mainList);
+    updateMainListStorage(mainList);
 
     itemContainer.id = todoObject.id;
 
@@ -36,8 +36,8 @@ function removeTodo(e) {
     const index = mainList.findIndex(item => item.id === selectedDiv.id);
     selectedDiv.remove();
     mainList.splice(index, 1);
-    updateStorage(mainList);
-    console.log(retrieveList());
+    updateMainListStorage(mainList);
+    console.log(retrieveMainList());
 }
 
 function displayTodos(item) {
@@ -100,8 +100,8 @@ function displayTodos(item) {
 }
 
 function displayAllItems(mainList) {
-    const savedList = retrieveList();
-    console.log(savedList);
+    const savedList = retrieveMainList();
+    // console.log(savedList);
     if (!savedList) return;
     for (let item of savedList) {
         mainList.push(item);
@@ -117,7 +117,7 @@ function domFunctions() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         addTodo();
-        displayTodos(retrieveList().at(-1));
+        displayTodos(retrieveMainList().at(-1));
         modalBox.style.display = 'none';
     });
     return;
