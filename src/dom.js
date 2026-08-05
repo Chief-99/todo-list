@@ -1,5 +1,5 @@
 import { createToDo } from "./todo.js";
-import { mainList } from "./projects.js";
+import { mainList, projectList, projects } from "./projects.js";
 import { format } from "date-fns";
 import { updateMainStorage, retrieveMainList } from "./storage.js";
 
@@ -12,6 +12,8 @@ const priorityInput = document.querySelector('#priority-input');
 const displayDiv = document.querySelector('#display-div');
 const openTodoForm = document.getElementById('open-todo-form');
 const modalBox = document.getElementById('modal');
+const projectsContainer = document.getElementById('projects-container');
+const newProjectButton = document.getElementById('new-project-button');
 
 function addTodo() {
     const title = titleInput.value;
@@ -129,6 +131,5 @@ window.addEventListener('click', (e) => {
         modalBox.style.display = 'none';
     }
 })
-
 
 export { domFunctions, displayAllItems };
