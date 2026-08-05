@@ -1,10 +1,21 @@
-function updateMainListStorage(mainList) {
+import { projectList } from "./projects.js";
+
+function updateMainStorage(mainList) {
     localStorage.setItem('mainTodo', JSON.stringify(mainList));
 };
 
-function retrieveMainList() {
-    const currentList = JSON.parse(localStorage.getItem('mainTodo'));
-    return currentList;
+function updateProjectStorage(projectList) {
+    localStorage.setItem('projectList', JSON.stringify(projectList));
 }
 
-export { updateMainListStorage, retrieveMainList }
+function retrieveMainList() {
+    const currentMainList = JSON.parse(localStorage.getItem('mainTodo'));
+    return currentMainList;
+}
+
+function retrieveProjectList() {
+    const currentProjectList = JSON.parse(localStorage.getItem('projectList'));
+    return currentProjectList;
+}
+
+export { updateMainStorage, updateProjectStorage, retrieveMainList, retrieveProjectList }

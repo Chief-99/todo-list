@@ -11,4 +11,4 @@ function projects() {
     return { createProject, addToProject };
 }
 
-export { mainList, projects };
+export { mainList, projects, projectList };

@@ -1,7 +1,7 @@
 import { createToDo } from "./todo.js";
 import { mainList } from "./projects.js";
 import { format } from "date-fns";
-import { updateMainListStorage, retrieveMainList } from "./storage.js";
+import { updateMainStorage, retrieveMainList } from "./storage.js";
 
 const addToDoButton = document.querySelector('#add-todo');
 const form = document.getElementById('todo-form');
@@ -24,7 +24,7 @@ function addTodo() {
     const itemContainer = document.createElement('div');
     displayDiv.appendChild(itemContainer);
     console.log(mainList);
-    updateMainListStorage(mainList);
+    updateMainStorage(mainList);
 
     itemContainer.id = todoObject.id;
 
@@ -36,7 +36,7 @@ function removeTodo(e) {
     const index = mainList.findIndex(item => item.id === selectedDiv.id);
     selectedDiv.remove();
     mainList.splice(index, 1);
-    updateMainListStorage(mainList);
+    updateMainStorage(mainList);
     console.log(retrieveMainList());
 }
 
