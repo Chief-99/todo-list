@@ -1,5 +1,3 @@
-import { projectList } from "./projects.js";
-
 function updateMainStorage(mainList) {
     localStorage.setItem('mainTodo', JSON.stringify(mainList));
 };
