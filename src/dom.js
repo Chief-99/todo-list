@@ -12,7 +12,7 @@ const priorityInput = document.querySelector('#priority-input');
 const displayDiv = document.querySelector('#display-div');
 const openTodoForm = document.getElementById('open-todo-form');
 const modalBox = document.getElementById('modal');
-const projectsContainer = document.getElementById('projects-container');
+const projectsList = document.getElementById('projects-list');
 const openProjectForm = document.getElementById('new-project-button');
 const projectModalBox = document.getElementById('project-modal');
 const confirmProject = document.getElementById('confirm-project');
@@ -121,11 +121,28 @@ function displayAllItems(mainList) {
     return;
 }
 
+function displayProject(name) {
+    const projectTitle = document.createElement('p');
+    const projectTasks = document.createElement('p');
+    const projectContainer = document.createElement('div');
+
+    projectTitle.textContent = name;
+    // number of project tasks, might not need to add it here
+
+    projectTitle.classList.add('project-title');
+    projectTasks.classList.add('project-tasks');
+    projectContainer.classList.add('project-container');
+
+    projectContainer.append(projectTitle, projectTasks);
+    projectsList.append(projectContainer);
+}
+
 function addProject() {
     const projectName = projectNameInput.value;
     const currentProject = projectManager.createProject(projectName);
     projectList.push(currentProject);
     console.log(projectList);
+    displayProject(projectName);
 }
 
 function domFunctions() {
