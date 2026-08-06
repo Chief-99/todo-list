@@ -18,6 +18,8 @@ const projectModalBox = document.getElementById('project-modal');
 const confirmProject = document.getElementById('confirm-project');
 const cancelProject = document.getElementById('cancel-project');
 const cancelTodo = document.getElementById('cancel-todo');
+const projectNameInput = document.getElementById('project-name-input');
+const projectForm = document.getElementById('project-form');
 
 function addTodo() {
     const title = titleInput.value;
@@ -119,13 +121,26 @@ function displayAllItems(mainList) {
     return;
 }
 
+function addProject() {
+    const projectName = projectNameInput.value;
+    const currentProject = projectManager.createProject(projectName);
+    projectList.push(currentProject);
+    console.log(projectList);
+}
+
 function domFunctions() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         addTodo();
         displayTodos(retrieveMainList().at(-1));
-        modalBox.style.display = 'none';
+        closeModal(modalBox);
     });
+
+    projectForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        addProject();
+        closeModal(projectModalBox);
+    })
     return;
 }
 
@@ -144,6 +159,5 @@ window.addEventListener('click', (e) => {
         closeModal(projectModalBox);
     }
 })
-
 
 export { domFunctions, displayAllItems };
