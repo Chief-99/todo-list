@@ -1,7 +1,7 @@
 import { createToDo } from "./todo.js";
 import { mainList, projectList, projectManager } from "./projects.js";
 import { format } from "date-fns";
-import { updateMainStorage, retrieveMainList } from "./storage.js";
+import { updateMainStorage, retrieveMainList, updateProjectStorage } from "./storage.js";
 
 const addToDoButton = document.querySelector('#add-todo');
 const form = document.getElementById('todo-form');
@@ -143,6 +143,7 @@ function addProject() {
     projectList.push(currentProject);
     console.log(projectList);
     displayProject(projectName);
+    updateProjectStorage(projectList);
 }
 
 function domFunctions() {
