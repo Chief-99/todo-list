@@ -1,5 +1,5 @@
 import { createToDo } from "./todo.js";
-import { mainList, projectList, projects } from "./projects.js";
+import { mainList, projectList, projectManager } from "./projects.js";
 import { format } from "date-fns";
 import { updateMainStorage, retrieveMainList } from "./storage.js";
 
@@ -15,6 +15,9 @@ const modalBox = document.getElementById('modal');
 const projectsContainer = document.getElementById('projects-container');
 const openProjectForm = document.getElementById('new-project-button');
 const projectModalBox = document.getElementById('project-modal');
+const confirmProject = document.getElementById('confirm-project');
+const cancelProject = document.getElementById('cancel-project');
+const cancelTodo = document.getElementById('cancel-todo');
 
 function addTodo() {
     const title = titleInput.value;
@@ -126,14 +129,21 @@ function domFunctions() {
     return;
 }
 
+function closeModal(modal) {
+    modal.style.display = 'none';
+}
+
 openTodoForm.addEventListener('click', () => modalBox.style.display = 'flex');
 openProjectForm.addEventListener('click', () => projectModalBox.style.display = 'flex');
+cancelProject.addEventListener('click', () => closeModal(projectModalBox));
+cancelTodo.addEventListener('click', () => closeModal(modalBox));
 window.addEventListener('click', (e) => {
     if (e.target == modalBox) {
-        modalBox.style.display = 'none';
+        closeModal(modalBox);
     } else if (e.target == projectModalBox) {
-        projectModalBox.style.display = 'none';
+        closeModal(projectModalBox);
     }
 })
+
 
 export { domFunctions, displayAllItems };

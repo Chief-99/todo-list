@@ -11,4 +11,6 @@ function projects() {
     return { createProject, addToProject };
 }
 
-export { mainList, projects, projectList };
+const projectManager = projects();
+
+export { mainList, projectManager, projectList };
