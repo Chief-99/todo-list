@@ -155,6 +155,7 @@ function addProject() {
     console.log(projectList);
     displayProject(projectName);
     updateProjectStorage(projectList);
+    projectForm.reset();
 }
 
 function domFunctions() {
