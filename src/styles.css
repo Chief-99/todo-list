@@ -311,3 +311,11 @@ textarea {
 select {
   height: 30px;
 }
+
+.project-title {
+  cursor: pointer;
+}
+
+.selected-project {
+  font-weight: bold;
+}

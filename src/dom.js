@@ -144,6 +144,8 @@ function displayProject(name) {
     projectTasks.classList.add('project-tasks');
     projectContainer.classList.add('project-container');
 
+    projectContainer.addEventListener('click', selectProject);
+
     projectContainer.append(projectTitle, projectTasks);
     projectsList.append(projectContainer);
 }
@@ -156,6 +158,10 @@ function addProject() {
     displayProject(projectName);
     updateProjectStorage(projectList);
     projectForm.reset();
+}
+
+function selectProject(e) {
+    e.target.classList.toggle('selected-project');
 }
 
 function domFunctions() {
