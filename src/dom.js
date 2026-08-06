@@ -1,7 +1,7 @@
 import { createToDo } from "./todo.js";
 import { mainList, projectList, projectManager } from "./projects.js";
 import { format } from "date-fns";
-import { updateMainStorage, retrieveMainList, updateProjectStorage } from "./storage.js";
+import { updateMainStorage, retrieveMainList, updateProjectStorage, retrieveProjectList } from "./storage.js";
 
 const addToDoButton = document.querySelector('#add-todo');
 const form = document.getElementById('todo-form');
@@ -121,6 +121,17 @@ function displayAllItems(mainList) {
     return;
 }
 
+function displayAllProjects(projectList) {
+    const savedList = retrieveProjectList();
+    console.log(savedList);
+    if (!savedList) return;
+    for (let item of savedList) {
+        projectList.push(item);
+        displayProject(item.name);
+    };
+    return;
+}
+
 function displayProject(name) {
     const projectTitle = document.createElement('p');
     const projectTasks = document.createElement('p');
@@ -178,4 +189,4 @@ window.addEventListener('click', (e) => {
     }
 })
 
-export { domFunctions, displayAllItems };
+export { domFunctions, displayAllItems, displayAllProjects };
