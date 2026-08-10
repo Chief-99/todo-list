@@ -35,6 +35,7 @@ function addTodo() {
     displayDiv.appendChild(itemContainer);
     console.log(mainList);
     updateMainStorage(mainList);
+    addToProject(todoObject);
 
     itemContainer.id = todoObject.id;
 
@@ -174,8 +175,18 @@ function checkProjects() {
 
     if (selectedDiv) {
         const currentProject = projectList.find((item) => item.name === selectedDiv.textContent);
-        console.log(currentProject);
+        return currentProject;
     }
+
+    return;
+}
+
+function addToProject(todo) {
+    const currentProject = checkProjects();
+
+    currentProject.todos.push(todo);
+    console.log(projectList);
+    updateProjectStorage(projectList);
 }
 
 function domFunctions() {
