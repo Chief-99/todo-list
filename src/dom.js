@@ -178,10 +178,21 @@ function removeSelectedClass() {
 
 }
 
+function checkProjects() {
+    const projects = Array.from(projectsContainer.querySelectorAll('.project-container'));
+    const selectedDiv = projects.find(item => item.classList.contains('selected-project'));
+
+    if (selectedDiv) {
+        const currentProject = projectList.find((item) => item.name === selectedDiv.textContent);
+        console.log(currentProject);
+    }
+}
+
 function domFunctions() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         addTodo();
+        checkProjects();
         displayTodos(retrieveMainList().at(-1));
         closeModal(modalBox);
     });
