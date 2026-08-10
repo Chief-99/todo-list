@@ -20,6 +20,7 @@ const cancelProject = document.getElementById('cancel-project');
 const cancelTodo = document.getElementById('cancel-todo');
 const projectNameInput = document.getElementById('project-name-input');
 const projectForm = document.getElementById('project-form');
+const projectsContainer = document.getElementById('projects-list');
 
 function addTodo() {
     const title = titleInput.value;
@@ -144,7 +145,10 @@ function displayProject(name) {
     projectTasks.classList.add('project-tasks');
     projectContainer.classList.add('project-container');
 
-    projectContainer.addEventListener('click', selectProject);
+    projectContainer.addEventListener('click', (e) => {
+        checkProjects(e);
+        selectProject(e);
+    });
 
     projectContainer.append(projectTitle, projectTasks);
     projectsList.append(projectContainer);
@@ -161,7 +165,16 @@ function addProject() {
 }
 
 function selectProject(e) {
-    e.target.classList.toggle('selected-project');
+    e.currentTarget.classList.add('selected-project');
+}
+
+function checkProjects(e) {
+    const projects = projectsContainer.querySelectorAll('.project-container');
+
+    for (let item of projects) {
+        item.classList.remove('selected-project');
+    };
+
 }
 
 function domFunctions() {
