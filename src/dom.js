@@ -18,7 +18,6 @@ const projectModalBox = document.getElementById('project-modal');
 const confirmProject = document.getElementById('confirm-project');
 const cancelProject = document.getElementById('cancel-project');
 const cancelTodo = document.getElementById('cancel-todo');
-const projectNameInput = document.getElementById('project-name-input');
 const projectForm = document.getElementById('project-form');
 const projectsContainer = document.getElementById('projects-list');
 const allTasks = document.getElementById('all-tasks');

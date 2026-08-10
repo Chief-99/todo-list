@@ -1,5 +1,6 @@
 const mainList = [];
 const projectList = [];
+const projectNameInput = document.getElementById('project-name-input');
 
 function projects() {
     function createProject(name) {
