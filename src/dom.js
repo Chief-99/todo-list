@@ -46,8 +46,18 @@ function removeTodo(e) {
     const index = mainList.findIndex(item => item.id === selectedDiv.id);
     selectedDiv.remove();
     mainList.splice(index, 1);
+    removeTodoFromProject(selectedDiv);
     updateMainStorage(mainList);
-    console.log(retrieveMainList());
+    // console.log(retrieveMainList());
+    console.log(projectList);
+}
+
+function removeTodoFromProject(target) {
+    projectList.forEach((project) => {
+        const index = project.todos.findIndex(item => item.id === target.id);
+        project.todos.splice(index, 1);
+    });
+    updateProjectStorage(projectList);
 }
 
 function displayTodos(item) {
