@@ -222,4 +222,4 @@ window.addEventListener('click', (e) => {
     }
 })
 
-export { domFunctions, displayAllItems, displayAllProjects };
+export { domFunctions, displayAllItems, displayAllProjects, displayProject };

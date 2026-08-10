@@ -1,6 +1,10 @@
+import { displayProject } from "./dom.js";
+import { updateProjectStorage } from "./storage.js";
+
 const mainList = [];
 const projectList = [];
 const projectNameInput = document.getElementById('project-name-input');
+const projectForm = document.getElementById('project-form');
 
 function projects() {
     function createProject(name) {
