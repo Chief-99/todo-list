@@ -21,6 +21,7 @@ const cancelTodo = document.getElementById('cancel-todo');
 const projectNameInput = document.getElementById('project-name-input');
 const projectForm = document.getElementById('project-form');
 const projectsContainer = document.getElementById('projects-list');
+const allTasks = document.getElementById('all-tasks');
 
 function addTodo() {
     const title = titleInput.value;
@@ -146,7 +147,7 @@ function displayProject(name) {
     projectContainer.classList.add('project-container');
 
     projectContainer.addEventListener('click', (e) => {
-        checkProjects(e);
+        removeSelectedClass(e);
         selectProject(e);
     });
 
@@ -168,7 +169,7 @@ function selectProject(e) {
     e.currentTarget.classList.add('selected-project');
 }
 
-function checkProjects(e) {
+function removeSelectedClass() {
     const projects = projectsContainer.querySelectorAll('.project-container');
 
     for (let item of projects) {
@@ -201,6 +202,7 @@ openTodoForm.addEventListener('click', () => modalBox.style.display = 'flex');
 openProjectForm.addEventListener('click', () => projectModalBox.style.display = 'flex');
 cancelProject.addEventListener('click', () => closeModal(projectModalBox));
 cancelTodo.addEventListener('click', () => closeModal(modalBox));
+allTasks.addEventListener('click', removeSelectedClass)
 window.addEventListener('click', (e) => {
     if (e.target == modalBox) {
         closeModal(modalBox);

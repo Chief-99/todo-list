@@ -312,7 +312,8 @@ select {
   height: 30px;
 }
 
-.project-title {
+.project-title,
+#all-tasks {
   cursor: pointer;
 }
 
