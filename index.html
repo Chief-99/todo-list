@@ -9,7 +9,20 @@
 
 <body>
     <section id="sidebar">
-        <button id="open-todo-form">+ Add todo</button>
+        <div class="top-container">
+            <button id="open-todo-form">+ Add todo</button>
+            <div class="statistic-section">
+
+            </div>
+            <div class="projects-section">
+                <p id="all-tasks">All tasks</p>
+                <p class="projects-heading">PROJECTS</p>
+                <div id="projects-list">
+
+                </div>
+            </div>
+        </div>
+        <button id="new-project-button">New project</button>
     </section>
 
     <main id="main-content">
@@ -26,6 +39,8 @@
         <div id="display-div">
         </div>
     </main>
+
+    <!--* TODO FORMS -->
     <div id="modal">
         <div id="modal-content">
             <form id="todo-form">
@@ -55,10 +70,30 @@
                     </p>
                 </div>
 
+                <div class="buttons-container">
+                    <button id="cancel-todo" type="button">Cancel</button>
+                    <button id="add-todo" type="submit">Confirm</button>
+                </div>
 
-                <button id="add-todo" type="submit">Confirm</button>
+
             </form>
 
+        </div>
+    </div>
+
+    <!--* PROJECT FORM -->
+    <div id="project-modal">
+        <div id="project-modal-content">
+            <form id="project-form">
+                <p class="project-form-section">
+                    <label for="project-name-input">Project name:</label>
+                    <input type="text" id="project-name-input" minlength="3" required>
+                </p>
+                <div class="buttons-container">
+                    <button id="cancel-project" type="button">Cancel</button>
+                    <button id="confirm-project">Confirm</button>
+                </div>
+            </form>
         </div>
     </div>
 
