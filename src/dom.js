@@ -32,7 +32,7 @@ function addTodo() {
 
     const itemContainer = document.createElement('div');
     displayDiv.appendChild(itemContainer);
-    console.log(mainList);
+    // console.log(mainList);
     updateMainStorage(mainList);
     addToProject(todoObject);
 
@@ -55,7 +55,9 @@ function removeTodo(e) {
 function removeTodoFromProject(target) {
     projectList.forEach((project) => {
         const index = project.todos.findIndex(item => item.id === target.id);
-        project.todos.splice(index, 1);
+        if (index !== -1) {
+            project.todos.splice(index, 1);
+        }
     });
     updateProjectStorage(projectList);
 }
