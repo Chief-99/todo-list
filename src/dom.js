@@ -259,7 +259,11 @@ cancelProject.addEventListener('click', () => closeModal(projectModalBox));
 cancelTodo.addEventListener('click', () => closeModal(modalBox));
 allTasks.addEventListener('click', () => {
     removeSelectedClass();
+    displayDiv.innerHTML = '';
     for (let item of mainList) {
+        const itemContainer = document.createElement('div');
+        itemContainer.id = item.id;
+        displayDiv.append(itemContainer);
         displayTodos(item);
     }
 });
