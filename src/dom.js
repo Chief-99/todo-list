@@ -147,7 +147,7 @@ function displayAllProjects(projectList) {
     return;
 }
 
-function displayProject(name) {
+function displayProject(name, id) {
     const projectTitle = document.createElement('p');
     const projectTasks = document.createElement('p');
     const projectContainer = document.createElement('div');
@@ -158,10 +158,13 @@ function displayProject(name) {
     projectTitle.classList.add('project-title');
     projectTasks.classList.add('project-tasks');
     projectContainer.classList.add('project-container');
+    projectContainer.id = id;
 
     projectContainer.addEventListener('click', (e) => {
+        const id = e.currentTarget.id;
         removeSelectedClass(e);
         selectProject(e);
+        displayProjectTodos(id);
     });
 
     projectContainer.append(projectTitle, projectTasks);
@@ -172,8 +175,8 @@ function addProject() {
     const projectName = projectNameInput.value;
     const currentProject = projectManager.createProject(projectName);
     projectList.push(currentProject);
-    // console.log(projectList);
-    displayProject(projectName);
+    console.log(currentProject.id);
+    displayProject(currentProject.name, currentProject.id);
     updateProjectStorage(projectList);
     projectForm.reset();
 }
@@ -213,7 +216,15 @@ function addToProject(todo) {
         // console.log(projectList);
         updateProjectStorage(projectList);
     }
+}
 
+function displayProjectTodos(id) {
+    const index = projectList.findIndex(item => item.id === id);
+    displayDiv.innerHTML = '';
+    // console.log(index);
+    // for (let todo of projectList[index].todos) {
+    //     displayTodos(todo);
+    // }
 }
 
 function domFunctions() {
@@ -241,7 +252,12 @@ openTodoForm.addEventListener('click', () => modalBox.style.display = 'flex');
 openProjectForm.addEventListener('click', () => projectModalBox.style.display = 'flex');
 cancelProject.addEventListener('click', () => closeModal(projectModalBox));
 cancelTodo.addEventListener('click', () => closeModal(modalBox));
-allTasks.addEventListener('click', removeSelectedClass)
+allTasks.addEventListener('click', () => {
+    removeSelectedClass();
+    for (let item of mainList) {
+        displayTodos(item);
+    }
+});
 window.addEventListener('click', (e) => {
     if (e.target == modalBox) {
         closeModal(modalBox);
