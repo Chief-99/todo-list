@@ -1,5 +1,5 @@
 import { createToDo } from "./todo.js";
-import { mainList, projectList, projectManager, addProject } from "./projects.js";
+import { mainList, projectList, projectManager } from "./projects.js";
 import { format } from "date-fns";
 import { updateMainStorage, retrieveMainList, updateProjectStorage, retrieveProjectList } from "./storage.js";
 
@@ -20,6 +20,7 @@ const cancelProject = document.getElementById('cancel-project');
 const cancelTodo = document.getElementById('cancel-todo');
 const projectForm = document.getElementById('project-form');
 const projectsContainer = document.getElementById('projects-list');
+const projectNameInput = document.getElementById('project-name-input');
 const allTasks = document.getElementById('all-tasks');
 
 function addTodo() {
@@ -165,6 +166,16 @@ function displayProject(name) {
 
     projectContainer.append(projectTitle, projectTasks);
     projectsList.append(projectContainer);
+}
+
+function addProject() {
+    const projectName = projectNameInput.value;
+    const currentProject = projectManager.createProject(projectName);
+    projectList.push(currentProject);
+    // console.log(projectList);
+    displayProject(projectName);
+    updateProjectStorage(projectList);
+    projectForm.reset();
 }
 
 function selectProject(e) {

@@ -3,8 +3,6 @@ import { updateProjectStorage } from "./storage.js";
 
 const mainList = [];
 const projectList = [];
-const projectNameInput = document.getElementById('project-name-input');
-const projectForm = document.getElementById('project-form');
 
 function projects() {
     function createProject(name) {
@@ -16,16 +14,6 @@ function projects() {
     return { createProject, addToProject };
 }
 
-function addProject() {
-    const projectName = projectNameInput.value;
-    const currentProject = projectManager.createProject(projectName);
-    projectList.push(currentProject);
-    console.log(projectList);
-    displayProject(projectName);
-    updateProjectStorage(projectList);
-    projectForm.reset();
-}
-
 const projectManager = projects();
 
-export { mainList, projectManager, projectList, addProject };
+export { mainList, projectManager, projectList };
