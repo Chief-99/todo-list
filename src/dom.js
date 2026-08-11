@@ -142,7 +142,7 @@ function displayAllProjects(projectList) {
     if (!savedList) return;
     for (let item of savedList) {
         projectList.push(item);
-        displayProject(item.name);
+        displayProject(item.name, item.id);
     };
     return;
 }
@@ -162,6 +162,7 @@ function displayProject(name, id) {
 
     projectContainer.addEventListener('click', (e) => {
         const id = e.currentTarget.id;
+        // console.log(e.currentTarget);
         removeSelectedClass(e);
         selectProject(e);
         displayProjectTodos(id);
@@ -175,7 +176,7 @@ function addProject() {
     const projectName = projectNameInput.value;
     const currentProject = projectManager.createProject(projectName);
     projectList.push(currentProject);
-    console.log(currentProject.id);
+    // console.log(currentProject.id);
     displayProject(currentProject.name, currentProject.id);
     updateProjectStorage(projectList);
     projectForm.reset();
@@ -221,10 +222,14 @@ function addToProject(todo) {
 function displayProjectTodos(id) {
     const index = projectList.findIndex(item => item.id === id);
     displayDiv.innerHTML = '';
-    // console.log(index);
-    // for (let todo of projectList[index].todos) {
-    //     displayTodos(todo);
-    // }
+    // console.log(id);
+    console.log(index);
+    for (let todo of projectList[index].todos) {
+        const itemContainer = document.createElement('div');
+        itemContainer.id = todo.id;
+        displayDiv.append(itemContainer);
+        displayTodos(todo);
+    }
 }
 
 function domFunctions() {
