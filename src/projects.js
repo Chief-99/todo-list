@@ -6,7 +6,8 @@ const projectList = [];
 
 function projects() {
     function createProject(name) {
-        return { name, todos: [] };
+        const id = crypto.randomUUID();
+        return { name, id, todos: [] };
     };
 
     const addToProject = (item, project) => project.todos.push(item);

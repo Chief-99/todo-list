@@ -5,7 +5,7 @@ function createToDo(title, description, dueDate, priority) {
     const todo = { title, description, dueDate, priority, id };
 
     mainList.push(todo);
-    console.log(todo);
+    // console.log(todo);
     return todo;
 };
 

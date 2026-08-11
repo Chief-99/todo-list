@@ -206,9 +206,14 @@ function checkProjects() {
 function addToProject(todo) {
     const currentProject = checkProjects();
 
-    currentProject.todos.push(todo);
-    console.log(projectList);
-    updateProjectStorage(projectList);
+    if (!currentProject) {
+        return;
+    } else {
+        currentProject.todos.push(todo);
+        // console.log(projectList);
+        updateProjectStorage(projectList);
+    }
+
 }
 
 function domFunctions() {
